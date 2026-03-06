@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 💐</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ffc2e0,#ffe6f2);
+padding:40px;
+overflow-x:hidden;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:25px;
+max-width:700px;
+margin:auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.img-box{
+width:220px;
+height:220px;
+margin:auto;
+border-radius:25px;
+overflow:hidden;
+border:4px solid #ff66b2;
+margin-bottom:20px;
+}
+
+.img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+h1{
+color:#ff4da6;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:20px;
+background:#ff4da6;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff1a8c;
+}
+
+.carta{
+background:#fff0f6;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+transform:scaleY(0);
+transform-origin:top;
+transition:0.6s;
+}
+
+.carta.abierta{
+transform:scaleY(1);
+}
+
+.flower{
+position:absolute;
+top:-20px;
+font-size:22px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+.rose{
+position:absolute;
+bottom:-40px;
+font-size:28px;
+animation:rise linear infinite;
+}
+
+@keyframes rise{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h1>🌷 Feliz Día de la Mujer 🌷</h1>
+
+<div class="img-box">
+<img src="tuimagen.jpeg">
+</div>
+
+<button onclick="abrirCarta()">💌 Abrir carta</button>
+
+<div class="carta" id="carta">
+
+Holaaa amor mío de mi vida, feliz 8 de Marzo, se celebra el día de la mujer
+y con este detalle quiero hacerte saber que estoy muy orgulloso de ti, por la
+gran mujer que eres, todo lo que haces por ser mejor día a día, agradecerte por
+ser una mujer bastante fuerte que inspira a superarse uno mismo solo con su 
+presencia, con sus lindas palabras, con su forma de ser que enamora, también agradecerte
+por haber aparecido en mi vida, aunque no todo haya sido lindo, de poco en poco
+hacemos lo posible por cambiar muchas cosas juntos, superarnos, amarnos,
+dar una mejor historia a todo esto, créeme que tengo muchas ganas de
+abrazarte, decirte lo mucho que te extrañé y te extraño, pese a todas las dificultades
+siempre te levantas y encuentras la solución a lo que te está dificultando
+el día y eso es algo de admirar y yo sinceramente admiro muchas cosas de ti, cosas
+que yo quisiera demostrar, hacer, dar. Sin más que decirte mi mapachita linda, te amo
+y mucho, como no tienes idea, quiero que las cosas de verdad salgan bien, de verdad
+quiero que esto pueda ser algo muy lindo, de verdad y de corazón, gracias por estar aquí. 
+
+Feliz Día de la Mujer 🌹
+
+</div>
+
+</div>
+
+<script>
+
+function abrirCarta(){
+document.getElementById("carta").classList.toggle("abierta");
+document.getElementById("musica").play();
+}
+
+function crearFlor(){
+const flor=document.createElement("div");
+flor.classList.add("flower");
+flor.innerText="🌸";
+
+flor.style.left=Math.random()*100+"vw";
+flor.style.animationDuration=(4+Math.random()*6)+"s";
+
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},9000);
+}
+
+setInterval(crearFlor,300);
+
+function crearRosa(){
+const rosa=document.createElement("div");
+rosa.classList.add("rose");
+rosa.innerText="🌹";
+
+rosa.style.left=Math.random()*100+"vw";
+rosa.style.animationDuration=(5+Math.random()*6)+"s";
+
+document.body.appendChild(rosa);
+
+setTimeout(()=>{
+rosa.remove();
+},10000);
+}
+
+setInterval(crearRosa,800);
+
+</script>
+
+</body>
+</html>
